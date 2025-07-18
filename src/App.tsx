@@ -85,7 +85,7 @@ function App() {
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 mb-12">
             <div className="w-full max-w-3xl mx-auto">
               <img 
-                src="https://i.postimg.cc/sX0kX7HY/jejum-cafe-preto.webp" 
+                src="https://i.postimg.cc/1Rpy5YcM/mulher-biblia-cafe.webp" 
                 alt="Jejum com Café Preto" 
                 className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
               />
