@@ -412,7 +412,7 @@ function App() {
             {[
               {
                 icon: <Gift className="w-8 h-8 text-yellow-500" />,
-                title: "📓 E-book: Receitas com Café para quebrar a gordura e fortalecer a mente"
+                title: "📓 Receitas com Café para quebrar a gordura e fortalecer a mente"
               },
               {
                 icon: <CheckCircle className="w-8 h-8 text-green-500" />,
