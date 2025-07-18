@@ -149,12 +149,6 @@ function App() {
       <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <img 
-              src="https://i.postimg.cc/C1WcXN6Q/mockup-jejumm-cafe-preto.webp" 
-              alt="Mockup do Protocolo"
-              className="w-full max-w-2xl mx-auto mb-12 rounded-2xl shadow-2xl"
-            />
-            
             <h2 className="text-4xl md:text-5xl font-black mb-12 text-white">
               VOCÊ JÁ TENTOU <span className="text-orange-500">DE TUDO</span>
             </h2>
