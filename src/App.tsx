@@ -248,7 +248,7 @@ function App() {
                       "Eu atendo mulheres cristãs todos os dias.<br/>
                       Percebi que não é só sobre perder peso...<br/>
                       É sobre resgatar <span className="text-orange-500">autoestima</span>, <span className="text-yellow-500">fé</span> e <span className="text-green-500">saúde</span>.<br/>
-                      O 'Jejum com Café Preto' une a ciência com o propósito espiritual."
+                      O 'Jejum com Café Preto\' une a ciência com o propósito espiritual."
                     </p>
                   </div>
                   
