@@ -35,17 +35,17 @@ function App() {
   const testimonials = [
     {
       image: 'https://i.postimg.cc/CKrPHYCY/DEPOIMENTO-1.webp',
-      text: 'Emagreci 6,4kg em 2 semanas! Nunca imaginei que o café seria meu maior aliado.',
+      text: 'Comprei com objetivo de emagrecer, mas além disso, reestabeleci minha fé. Perdi 6,4kg em 2 semanas e encontrei paz interior.',
       rating: 5
     },
     {
       image: 'https://i.postimg.cc/8cMZS62P/DEPOIMENTO-2.webp',
-      text: 'Eu acordei magra, porra. Esse protocolo virou minha rotina.',
+      text: 'Cada manhã com café e oração mudou minha vida. Não é só sobre o peso, é sobre propósito. Me sinto renovada.',
       rating: 5
     },
     {
       image: 'https://i.postimg.cc/j5W8M9vf/DEPOIMENTO-3.webp',
-      text: 'Sem fome, sem ansiedade. Resultado real e rápido.',
+      text: 'Deus usou esse protocolo para me libertar da ansiedade alimentar. Perdi 5kg e ganhei uma nova perspectiva de vida.',
       rating: 5
     }
   ];
@@ -71,14 +71,14 @@ function App() {
         <div className={`container mx-auto px-4 py-20 z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-              <span className="block text-white">DESCOBERTA NATURAL</span>
-              <span className="block text-orange-500">ENGANA O CORPO</span>
-              <span className="block text-white">E DERRETE GORDURA</span>
+              <span className="block text-white">PROPÓSITO SAGRADO</span>
+              <span className="block text-orange-500">QUE TRANSFORMA</span>
+              <span className="block text-white">CORPO E ESPÍRITO</span>
             </h1>
             
             <p className="text-xl md:text-2xl font-bold text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Veja Como Mulheres Estão Perdendo Até <span className="text-orange-500">5Kg por Semana</span> 
-              Com Apenas <span className="text-yellow-500">1 Copo de Café Preto por Dia</span>
+              Mulheres estão emagrecendo até <span className="text-orange-500">5kg por semana</span> com um ritual simples:<br/>
+              <span className="text-yellow-500">Jejum espiritual com café preto</span> — e a <span className="text-white">Palavra de Deus</span> como guia.
             </p>
           </div>
 
@@ -95,10 +95,14 @@ function App() {
           <div className="text-center">
             <button 
               onClick={ScrollToTop}
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide"
+              className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide mb-6"
             >
-              🔥 QUERO ACESSAR O PROTOCOLO AGORA 🔥
+              ☕ QUERO EMAGRECER EM PROPÓSITO COM DEUS!
             </button>
+            
+            <div className="text-center text-gray-300 text-lg">
+              🙏 Jejum guiado | ☕ Café preto natural | 📖 Bíblia como âncora
+            </div>
           </div>
         </div>
       </section>
@@ -150,37 +154,30 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-black mb-12 text-white">
-              VOCÊ JÁ TENTOU <span className="text-orange-500">DE TUDO</span>
+              NÃO É SÓ DIETA. É UMA <span className="text-orange-500">LUTA QUE COMEÇA NO ESPÍRITO</span>.
             </h2>
             
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
               <p className="text-xl md:text-2xl leading-relaxed mb-6 text-gray-300">
-                Dieta low carb, treino na academia, chá milagroso, shake da moda...
+                Você tentou de tudo.
               </p>
               
               <p className="text-xl md:text-2xl leading-relaxed mb-6 text-gray-300">
-                Mas o que ninguém te fala é que o seu corpo <span className="text-red-500 font-bold">SABOTA</span> cada esforço seu.
+                Mas a <span className="text-red-500 font-bold">ansiedade</span>, o <span className="text-red-500 font-bold">desânimo</span> e a <span className="text-red-500 font-bold">culpa</span> continuam te vencendo.
               </p>
               
               <p className="text-xl md:text-2xl leading-relaxed mb-6 text-gray-300">
-                É o chamado <span className="text-orange-500 font-bold">"Modo Sobrevivência"</span>: seu metabolismo desacelera, você acumula gordura, e a ansiedade toma conta.
+                Seu corpo está em modo de defesa.
               </p>
               
               <p className="text-2xl md:text-3xl font-bold text-white mb-8">
-                O resultado? Você se olha no espelho e não se reconhece mais.
+                Mas sua alma pede libertação.
               </p>
             </div>
             
             <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 rounded-2xl p-8 md:p-12">
-              <h3 className="text-3xl md:text-4xl font-black mb-8 text-yellow-500">A SOLUÇÃO:</h3>
               <p className="text-xl md:text-2xl leading-relaxed mb-6 text-white">
-                Um simples hábito pela manhã.
-              </p>
-              <p className="text-xl md:text-2xl leading-relaxed mb-6 text-white">
-                Apenas 1 xícara de <span className="text-orange-500 font-bold">café preto puro em jejum</span> ativa um protocolo chamado <span className="text-yellow-500 font-bold">lipólise acelerada</span>, fazendo seu corpo buscar energia direto da gordura armazenada.
-              </p>
-              <p className="text-2xl md:text-3xl font-black text-white">
-                É simples. É natural. E <span className="text-orange-500">FUNCIONA PRA CARALHO</span>.
+                O protocolo de jejum com café preto ativa a <span className="text-orange-500 font-bold">lipólise física</span> e o <span className="text-yellow-500 font-bold">renovo espiritual</span>.
               </p>
             </div>
           </div>
@@ -190,9 +187,13 @@ function App() {
       {/* SEÇÃO 4 - PROVAS SOCIAIS + AVALIAÇÕES */}
       <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
-            VEJA O QUE <span className="text-orange-500">ELAS DIZEM</span>
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-8 text-white">
+            TESTEMUNHOS DE <span className="text-orange-500">FÉ E RESULTADO</span>
           </h2>
+          
+          <p className="text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            Mulheres comuns, com fé firme, que transformaram o corpo com um ato de obediência diária.
+          </p>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
@@ -238,31 +239,16 @@ function App() {
               {/* Conteúdo */}
               <div className="order-1 lg:order-2">
                 <h2 className="text-3xl md:text-4xl font-black mb-6 text-white">
-                  CONHEÇA A <span className="text-orange-500">ESPECIALISTA</span>
+                  MÉTODO CRIADO POR QUEM TEM <span className="text-orange-500">CIÊNCIA NA MENTE</span> E <span className="text-yellow-500">DEUS NO CORAÇÃO</span>
                 </h2>
                 
                 <div className="space-y-6 text-gray-300">
-                  <p className="text-lg leading-relaxed">
-                    Olá, me chamo Dra. Amanda Ribeiro. Sou <span className="text-white font-bold">nutricionista clínica funcional</span> com 
-                    pós-graduação em <span className="text-orange-500 font-semibold">Modulação Intestinal e Emagrecimento Feminino</span>.
-                  </p>
-                  
-                  <p className="text-lg leading-relaxed">
-                    Após anos de atendimento clínico, observei a <span className="text-white font-semibold">dificuldade real</span> das 
-                    minhas pacientes em manter constância nas dietas tradicionais.
-                  </p>
-                  
-                  <p className="text-lg leading-relaxed">
-                    Foi então que criei o método <span className="text-yellow-500 font-bold">"Jejum com Café Preto"</span> — 
-                    aliando ciência, experiência prática e um protocolo acessível para 
-                    <span className="text-white font-semibold"> mulheres reais</span>.
-                  </p>
-                  
                   <div className="bg-gray-800/50 rounded-xl p-6 border-l-4 border-orange-500">
                     <p className="text-lg leading-relaxed text-white font-medium">
-                      "Mulheres que trabalham, cuidam da casa e ainda querem se sentir bem com o próprio corpo. 
-                      Não vendo milagres — ofereço um método <span className="text-orange-500">embasado, prático</span> 
-                      e que respeita a rotina das brasileiras."
+                      "Eu atendo mulheres cristãs todos os dias.<br/>
+                      Percebi que não é só sobre perder peso...<br/>
+                      É sobre resgatar <span className="text-orange-500">autoestima</span>, <span className="text-yellow-500">fé</span> e <span className="text-green-500">saúde</span>.<br/>
+                      O 'Jejum com Café Preto' une a ciência com o propósito espiritual."
                     </p>
                   </div>
                   
@@ -369,21 +355,17 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-black mb-12 text-white">
-              VOCÊ VAI <span className="text-orange-500">RECEBER</span>
+              UM GUIA PARA O <span className="text-orange-500">CORPO</span>, UM CAMINHO PARA A <span className="text-yellow-500">MENTE</span>, UMA FERRAMENTA PARA A <span className="text-green-500">FÉ</span>
             </h2>
             
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 text-yellow-500">
-                PROTOCOLO JEJUM COM CAFÉ:
-              </h3>
-              
               <div className="space-y-4 text-left max-w-2xl mx-auto">
                 {[
-                  "✅ Guia prático passo a passo",
-                  "✅ Plano de 7, 14 e 30 dias",
-                  "✅ Ajustes alimentares por peso",
-                  "✅ Rituais de manhã e noite",
-                  "✅ Calendário visual de progresso"
+                  "📜 Guia de jejum com princípios naturais e espirituais",
+                  "🕊️ Roteiro devocional para 7, 14 e 30 dias",
+                  "🍽️ Ajustes de rotina sem dieta restritiva",
+                  "📖 Versículos e orações para manter o foco",
+                  "🔥 Calendário visual de progresso"
                 ].map((item, index) => (
                   <p key={index} className="text-lg md:text-xl text-gray-300">{item}</p>
                 ))}
@@ -408,7 +390,7 @@ function App() {
               </div>
               
               <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
-                🔥 QUERO EMAGRECER COM CAFÉ PRETO AGORA 🔥
+                💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
               </button>
             </div>
           </div>
@@ -418,23 +400,27 @@ function App() {
       {/* SEÇÃO 8 - BÔNUS EXCLUSIVOS */}
       <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
-            BÔNUS <span className="text-orange-500">EXCLUSIVOS</span>
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-8 text-white">
+            PRESENTES PARA <span className="text-orange-500">FORTALECER SUA JORNADA</span>
           </h2>
+          
+          <p className="text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            Receba ferramentas extras para fortalecer corpo, alma e propósito
+          </p>
           
           <div className="max-w-4xl mx-auto space-y-6 mb-12">
             {[
               {
                 icon: <Gift className="w-8 h-8 text-yellow-500" />,
-                title: "BÔNUS 1 – Guia \"Receitas com Café Que Queimam Calorias\""
+                title: "📓 E-book: Receitas com Café para quebrar a gordura e fortalecer a mente"
               },
               {
                 icon: <CheckCircle className="w-8 h-8 text-green-500" />,
-                title: "BÔNUS 2 – Checklist Diário de Progresso Digital"
+                title: "✅ Checklist espiritual e físico diário"
               },
               {
                 icon: <Users className="w-8 h-8 text-blue-500" />,
-                title: "BÔNUS 3 – Desafio 7 Dias com Grupo Exclusivo no WhatsApp"
+                title: "👭 Grupo de apoio com outras mulheres de fé"
               }
             ].map((bonus, index) => (
               <div key={index} className="bg-gray-800 rounded-2xl p-6 flex items-center space-x-4">
@@ -446,7 +432,7 @@ function App() {
           
           <div className="text-center">
             <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
-              🔥 QUERO TUDO COM OS BÔNUS AGORA MESMO 🔥
+              💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
             </button>
           </div>
         </div>
@@ -457,10 +443,15 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-black mb-12 text-white">
-              🔒 GARANTIA TRÍPLICE DE <span className="text-green-500">SEGURANÇA</span> 🔒
+              UMA PROMESSA TRIPLA: <span className="text-green-500">RESULTADO</span>, <span className="text-blue-500">APOIO</span> E <span className="text-yellow-500">HONESTIDADE</span>
             </h2>
             
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
+              <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                Se em 7 dias você não se sentir mais leve, animada e motivada...<br/>
+                Seu dinheiro é devolvido. Sem julgamentos. Sem enrolação.
+              </p>
+              
               <div className="space-y-6">
                 {[
                   {
@@ -500,7 +491,7 @@ function App() {
             </div>
             
             <button className="bg-gradient-to-r from-green-500 to-blue-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-green-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
-              🔒 QUERO TESTAR SEM RISCO AGORA! 🔒
+              💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
             </button>
           </div>
         </div>
@@ -553,37 +544,25 @@ function App() {
       <section className="py-20 bg-gradient-to-br from-red-500/10 via-black to-orange-500/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-red-500/20 border-2 border-red-500 rounded-2xl p-8 mb-12">
-              <AlertTriangle className="w-12 h-12 text-red-500 mx-auto mb-4" />
-              <h2 className="text-3xl md:text-4xl font-black mb-6 text-red-500">
-                ⚠️ ATENÇÃO: Essa página pode sair do ar a qualquer momento.
-              </h2>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-black mb-12 text-white">
+              VOCÊ NÃO CHEGOU AQUI <span className="text-orange-500">POR ACASO</span>. É UM <span className="text-yellow-500">CHAMADO</span>.
+            </h2>
             
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
               <div className="space-y-6">
                 {[
-                  "🔥 Esse protocolo NÃO estará disponível novamente por esse valor",
-                  "🔥 Resultados começam nas PRIMEIRAS 48 HORAS",
-                  "🔥 Bônus e suporte 1:1 só pras primeiras 300 pessoas"
+                  "⏰ Comece ainda hoje o propósito das 7 manhãs",
+                  "📉 Resultados físicos e espirituais em 48h",
+                  "🎁 Bônus e grupo exclusivo para quem decidir agora"
                 ].map((item, index) => (
                   <p key={index} className="text-xl md:text-2xl font-bold text-white">{item}</p>
                 ))}
-              </div>
-              
-              <div className="mt-8 pt-8 border-t border-gray-700">
-                <p className="text-xl md:text-2xl text-gray-300 mb-4">
-                  👉 Faça parte do desafio das 7 manhãs com café preto.
-                </p>
-                <p className="text-xl md:text-2xl text-gray-300 mb-8">
-                  👉 Seja a próxima transformação com menos 5kg.
-                </p>
               </div>
             </div>
             
             <div className="space-y-4">
               <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide w-full md:w-auto">
-                🔥 SIM, EU QUERO ENTRAR AGORA E MUDAR MEU CORPO! 🔥
+                SIM, EU QUERO INICIAR MEU JEJUM COM CAFÉ E COM DEUS!
               </button>
               
               <p className="text-sm text-gray-400">
