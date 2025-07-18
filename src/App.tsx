@@ -361,7 +361,7 @@ function App() {
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
               <div className="space-y-4 text-left max-w-2xl mx-auto">
                 {[
-                  "📜 Guia de jejum com princípios naturais e espirituais",
+                  "📜 Método divino de jejum com princípios naturais e espirituais",
                   "🕊️ Roteiro devocional para 7, 14 e 30 dias",
                   "🍽️ Ajustes de rotina sem dieta restritiva",
                   "📖 Versículos e orações para manter o foco",
@@ -385,8 +385,8 @@ function App() {
               
               <div className="mb-8">
                 <p className="text-2xl text-gray-400 line-through mb-2">De: R$197</p>
-                <p className="text-5xl md:text-6xl font-black text-orange-500 mb-2">R$67</p>
-                <p className="text-xl text-gray-300">à vista ou 10x de R$8,03</p>
+                <p className="text-5xl md:text-6xl font-black text-orange-500 mb-2">R$19,70</p>
+                <p className="text-xl text-gray-300">à vista </p>
               </div>
               
               <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
