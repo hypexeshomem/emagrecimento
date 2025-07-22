@@ -4,12 +4,80 @@ import { ChevronLeft, ChevronRight, Star, Shield, Gift, Clock, Users, TrendingUp
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [currentNotification, setCurrentNotification] = useState(0);
+  const [showNotification, setShowNotification] = useState(true);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const notifications = [
+    {
+      name: "Maria - SP",
+      action: "acaba de iniciar o Jejum com Café Preto.",
+      subtitle: "Transformação em corpo e alma começando agora."
+    },
+    {
+      name: "Juliana - RJ",
+      action: "fez sua inscrição no propósito das 7h.",
+      subtitle: "1 xícara. 1 oração. Um novo começo."
+    },
+    {
+      name: "Patrícia - MG",
+      action: "garantiu acesso ao método sagrado.",
+      subtitle: "Escolheu emagrecer com fé e direção divina."
+    },
+    {
+      name: "Ana - DF",
+      action: "entrou no protocolo espiritual agora mesmo.",
+      subtitle: "Decidiu cuidar do corpo com a Palavra como guia."
+    },
+    {
+      name: "Fernanda - BA",
+      action: "começou o propósito de 14 dias.",
+      subtitle: "Café, Bíblia e foco... O milagre começa por dentro."
+    },
+    {
+      name: "Simone - SC",
+      action: "acaba de acessar o guia completo.",
+      subtitle: "+1 mulher quebrando ciclos de ansiedade com fé."
+    },
+    {
+      name: "Luciana - AM",
+      action: "iniciou seu ritual de jejum e oração.",
+      subtitle: "O chamado foi ouvido. O corpo vai responder."
+    },
+    {
+      name: "Camila - CE",
+      action: "garantiu a oferta especial de R$19,70.",
+      subtitle: "Fez da fé seu ponto de partida."
+    },
+    {
+      name: "Débora - GO",
+      action: "começou o plano de 30 dias.",
+      subtitle: "Renovando o espírito e secando o corpo."
+    },
+    {
+      name: "Talita - PE",
+      action: "escolheu transformar a vida em oração.",
+      subtitle: "Agora é ela, Deus e uma xícara de café."
+    }
+  ];
+
+  // Cycle through notifications
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowNotification(false);
+      setTimeout(() => {
+        setCurrentNotification((prev) => (prev + 1) % notifications.length);
+        setShowNotification(true);
+      }, 500);
+    }, 8000); // Change notification every 8 seconds
+
+    return () => clearInterval(interval);
+  }, [notifications.length]);
 
   const beforeAfterImages = [
     {
@@ -90,6 +158,46 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* NOTIFICAÇÃO DE VENDAS */}
+      <div className={`fixed top-6 left-6 z-50 transition-all duration-500 ${showNotification ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
+        <div className="bg-gradient-to-r from-orange-900/95 to-amber-800/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-orange-500/20 max-w-sm">
+          {/* Brilho sutil */}
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-yellow-400/10 rounded-2xl blur-xl -z-10"></div>
+          
+          <div className="flex items-start space-x-3">
+            {/* Ícone cristão */}
+            <div className="flex-shrink-0 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center shadow-lg">
+              <span className="text-white text-lg">✝️</span>
+            </div>
+            
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center space-x-2 mb-1">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-xs text-orange-200 font-medium uppercase tracking-wide">Agora mesmo</span>
+              </div>
+              
+              <p className="text-white font-bold text-sm leading-tight mb-1">
+                <span className="text-orange-300">{notifications[currentNotification].name}</span> {notifications[currentNotification].action}
+              </p>
+              
+              <p className="text-orange-100/80 text-xs leading-relaxed italic">
+                "{notifications[currentNotification].subtitle}"
+              </p>
+            </div>
+            
+            {/* Botão fechar */}
+            <button 
+              onClick={() => setShowNotification(false)}
+              className="flex-shrink-0 text-orange-300 hover:text-white transition-colors p-1"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* SEÇÃO 1 - HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-yellow-500/10"></div>
