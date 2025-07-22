@@ -159,28 +159,28 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* NOTIFICAÇÃO DE VENDAS */}
-      <div className={`fixed top-6 left-6 z-50 transition-all duration-500 ${showNotification ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
-        <div className="bg-gradient-to-r from-orange-900/95 to-amber-800/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-orange-500/20 max-w-sm">
+      <div className={`fixed top-3 left-3 md:top-6 md:left-6 z-50 transition-all duration-500 ${showNotification ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
+        <div className="bg-gradient-to-r from-orange-900/95 to-amber-800/95 backdrop-blur-sm rounded-xl md:rounded-2xl p-2 md:p-4 shadow-2xl border border-orange-500/20 max-w-xs md:max-w-sm">
           {/* Brilho sutil */}
           <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-yellow-400/10 rounded-2xl blur-xl -z-10"></div>
           
-          <div className="flex items-start space-x-3">
+          <div className="flex items-start space-x-2 md:space-x-3">
             {/* Ícone cristão */}
-            <div className="flex-shrink-0 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white text-lg">✝️</span>
+            <div className="flex-shrink-0 w-6 h-6 md:w-10 md:h-10 bg-orange-500 rounded-full flex items-center justify-center shadow-lg">
+              <span className="text-white text-xs md:text-lg">✝️</span>
             </div>
             
             <div className="flex-1 min-w-0">
-              <div className="flex items-center space-x-2 mb-1">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-xs text-orange-200 font-medium uppercase tracking-wide">Agora mesmo</span>
+              <div className="flex items-center space-x-1 md:space-x-2 mb-1">
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-xs md:text-xs text-orange-200 font-medium uppercase tracking-wide">Agora</span>
               </div>
               
-              <p className="text-white font-bold text-sm leading-tight mb-1">
+              <p className="text-white font-bold text-xs md:text-sm leading-tight mb-1">
                 <span className="text-orange-300">{notifications[currentNotification].name}</span> {notifications[currentNotification].action}
               </p>
               
-              <p className="text-orange-100/80 text-xs leading-relaxed italic">
+              <p className="text-orange-100/80 text-xs md:text-xs leading-relaxed italic hidden md:block">
                 "{notifications[currentNotification].subtitle}"
               </p>
             </div>
@@ -188,9 +188,9 @@ function App() {
             {/* Botão fechar */}
             <button 
               onClick={() => setShowNotification(false)}
-              className="flex-shrink-0 text-orange-300 hover:text-white transition-colors p-1"
+              className="flex-shrink-0 text-orange-300 hover:text-white transition-colors p-0.5 md:p-1"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
