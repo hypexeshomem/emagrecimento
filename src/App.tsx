@@ -555,7 +555,9 @@ function App() {
               </div>
               
               <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
-                💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
+                <a href="https://go.disruptybr.com.br/q1yutawwn5" target="_blank" rel="noopener noreferrer" className="block">
+                  💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
+                </a>
               </button>
             </div>
           </div>
