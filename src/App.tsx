@@ -156,6 +156,13 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToOffer = () => {
+    const offerSection = document.querySelector('#offer-section');
+    if (offerSection) {
+      offerSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* NOTIFICAÇÃO DE VENDAS */}
@@ -509,7 +516,7 @@ function App() {
       </section>
 
       {/* SEÇÃO 7 - O QUE VOCÊ RECEBE + OFERTA PRINCIPAL */}
-      <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section id="offer-section" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-black mb-12 text-white">
@@ -740,6 +747,43 @@ function App() {
           </p>
         </div>
       </footer>
+
+      {/* BOTÃO FLUTUANTE FIXO */}
+      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 lg:bottom-4 lg:right-4 z-50 md:block">
+        {/* Versão Desktop */}
+        <div className="hidden md:block">
+          <button
+            onClick={scrollToOffer}
+            className="group bg-[#4D3319] text-[#FFF7E6] font-medium px-6 py-3.5 rounded-full shadow-lg hover:bg-[#6E4B2A] hover:font-bold transition-all duration-300 transform hover:scale-105"
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+            }}
+          >
+            <div className="text-center">
+              <div className="text-sm font-semibold">Entrar no Propósito Agora</div>
+              <div className="text-xs opacity-90 mt-1">Clique aqui e inicie o Jejum com Café Preto</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      {/* Versão Mobile - Centralizado na parte inferior */}
+      <div className="fixed bottom-4 left-[5%] right-[5%] z-50 md:hidden">
+        <button
+          onClick={scrollToOffer}
+          className="w-full bg-[#4D3319] text-[#FFF7E6] font-medium py-3.5 px-6 rounded-full shadow-lg hover:bg-[#6E4B2A] hover:font-bold transition-all duration-300"
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+          }}
+        >
+          <div className="text-center">
+            <div className="text-sm font-semibold">Entrar no Propósito Agora</div>
+            <div className="text-xs opacity-90 mt-1">Clique aqui e inicie o Jejum com Café Preto</div>
+          </div>
+        </button>
+      </div>
     </div>
   );
 }
