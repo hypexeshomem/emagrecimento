@@ -235,7 +235,7 @@ function App() {
 
           <div className="text-center">
             <button 
-              onClick={ScrollToTop}
+              onClick={scrollToOffer}
               className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide mb-6"
             >
               ☕ QUERO EMAGRECER EM PROPÓSITO COM DEUS!
@@ -599,7 +599,9 @@ function App() {
           
           <div className="text-center">
             <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
-              💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
+              <span onClick={scrollToOffer} className="cursor-pointer">
+                💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
+              </span>
             </button>
           </div>
         </div>
@@ -657,7 +659,9 @@ function App() {
               </div>
             </div>
             
-            <button className="bg-gradient-to-r from-green-500 to-blue-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-green-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
+            <button 
+              onClick={scrollToOffer}
+              className="bg-gradient-to-r from-green-500 to-blue-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-green-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
               💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
             </button>
           </div>
@@ -728,7 +732,9 @@ function App() {
             </div>
             
             <div className="space-y-4">
-              <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide w-full md:w-auto">
+              <button 
+                onClick={scrollToOffer}
+                className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide w-full md:w-auto">
                 SIM, EU QUERO INICIAR MEU JEJUM COM CAFÉ E COM DEUS!
               </button>
               
