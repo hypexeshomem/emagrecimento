@@ -157,7 +157,7 @@ function App() {
   };
 
   const scrollToOffer = () => {
-    const offerSection = document.querySelector('#offer-section');
+    const offerSection = document.querySelector('#offer-box');
     if (offerSection) {
       offerSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -538,6 +538,7 @@ function App() {
             </div>
             
             <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 rounded-2xl p-8 md:p-12 mb-12">
+            <div id="offer-box" className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 rounded-2xl p-8 md:p-12 mb-12">
               <img 
                 src="https://i.postimg.cc/sxP7D9wx/jejum-cafe-preto-semfundo.webp" 
                 alt="Mockup do Protocolo"
