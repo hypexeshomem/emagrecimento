@@ -503,31 +503,24 @@ function App() {
           <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
-                icon: "🌿",
                 question: "Posso tomar com adoçante?",
                 answer: "Ideal é puro. Mas stevia natural é ok."
               },
               {
-                icon: "💪",
                 question: "Preciso treinar?",
                 answer: "Não. O foco é o protocolo alimentar."
               },
               {
-                icon: "⏰",
                 question: "Em quanto tempo vejo resultado?",
                 answer: "Primeiros 3 dias já mostram resposta."
               },
               {
-                icon: "⚠️",
                 question: "Tem contraindicação?",
                 answer: "Grávidas, lactantes ou quem toma medicamentos deve consultar médico."
               }
             ].map((item, index) => (
               <div key={index} className="bg-gray-800 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-orange-500 mb-3 flex items-center">
-                  <span className="mr-3 text-2xl">{item.icon}</span>
-                  {item.question}
-                </h3>
+                <h3 className="text-xl font-bold text-orange-500 mb-3">{item.question}</h3>
                 <p className="text-gray-300 text-lg">{item.answer}</p>
               </div>
             ))}
@@ -740,7 +733,7 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-black mb-12 text-white">
-              VOCÊ NÃO CHEGOU AQUI <span className="text-orange-500">POR ACASO</span>. É UM <span className="text-yellow-500">CHAMADO</span>.
+              JÁ SÃO MILHARES DE MULHERES EM TRANSFORMAÇÃO. <span className="text-orange-500">SÓ FALTA VOCÊ</span>.
             </h2>
             
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
@@ -759,7 +752,7 @@ function App() {
               <button 
                 onClick={scrollToOffer}
                 className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide w-full md:w-auto">
-                SIM, EU QUERO INICIAR MEU JEJUM COM CAFÉ E COM DEUS!
+                INICIAR AGORA O JEJUM COM CAFÉ PRETO E FÉ
               </button>
               
               <p className="text-sm text-gray-400">
