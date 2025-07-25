@@ -558,7 +558,7 @@ function App() {
               </h3>
               
               <div className="mb-8">
-                <p className="text-2xl text-gray-400 line-through mb-2">De: R$197</p>
+                <p className="text-2xl text-gray-400 line-through mb-2">De: R$97</p>
                 <p className="text-5xl md:text-6xl font-black text-orange-500 mb-2">R$19,70</p>
                 <p className="text-xl text-gray-300">à vista </p>
               </div>
