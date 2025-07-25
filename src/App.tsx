@@ -213,8 +213,8 @@ function App() {
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
               <span className="block text-white">PROPÓSITO SAGRADO</span>
-              <span className="block text-orange-500">QUE TRANSFORMA</span>
-              <span className="block text-white">CORPO E ESPÍRITO</span>
+              <span className="block text-orange-500">QUE DERRETE GORDURA</span>
+              <span className="block text-white">E FORTALECE A ALMA</span>
             </h1>
             
             <p className="text-xl md:text-2xl font-bold text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
@@ -236,10 +236,14 @@ function App() {
           <div className="text-center">
             <button 
               onClick={scrollToOffer}
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide mb-6"
+              className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide mb-4"
             >
-              ☕ QUERO EMAGRECER EM PROPÓSITO COM DEUS!
+              COMECE HOJE MESMO E TRANSFORME CORPO E ALMA!
             </button>
+            
+            <p className="text-orange-300 font-bold text-lg mb-6">
+              Apenas R$19,70 – Acesso imediato
+            </p>
             
             <div className="text-center text-gray-300 text-lg">
               🙏 Jejum guiado | ☕ Café preto natural | 📖 Bíblia como âncora
