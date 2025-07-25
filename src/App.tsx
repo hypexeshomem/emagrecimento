@@ -105,7 +105,7 @@ function App() {
   const testimonials = [
     {
       image: 'https://i.postimg.cc/CKrPHYCY/DEPOIMENTO-1.webp',
-      text: 'Comprei com objetivo de emagrecer, mas além disso, reestabeleci minha fé. Perdi 6,4kg em 2 semanas e encontrei paz interior.',
+      text: 'Comprei com objetivo de emagrecer, mas além disso, reestabeleci minha fé. Em 3 dias minhas enxaquecas cessaram. Perdi 6,4kg em 2 semanas e encontrei paz interior.',
       rating: 5
     },
     {
@@ -335,6 +335,15 @@ function App() {
                 Seu corpo está em modo de defesa.
               </p>
               
+              <div className="text-xl md:text-2xl leading-relaxed mb-6 text-gray-300">
+                <p className="mb-4">E sabe o que isso causa?</p>
+                <div className="space-y-2 text-lg md:text-xl">
+                  <p>➤ Dificuldade de emagrecer.</p>
+                  <p>➤ Enxaquecas constantes.</p>
+                  <p>➤ Cansaço mental.</p>
+                </div>
+              </div>
+              
               <p className="text-2xl md:text-3xl font-bold text-white mb-8">
                 Mas sua alma pede libertação.
               </p>
@@ -458,7 +467,7 @@ function App() {
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
               <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
               <h3 className="text-3xl font-black text-white mb-2">87%</h3>
-              <p className="text-gray-300">afirmaram melhora na disposição e no humor</p>
+              <p className="text-gray-300">afirmaram melhora na disposição, no humor e redução de dores como enxaqueca</p>
             </div>
             
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
@@ -700,6 +709,10 @@ function App() {
               {
                 question: "Funciona mesmo se eu não fizer dieta?",
                 answer: "O protocolo é focado no jejum com café. Não requer dieta restritiva."
+              },
+              {
+                question: "Ajuda com dores de cabeça ou enxaqueca?",
+                answer: "Muitas mulheres relataram redução ou desaparecimento das crises, principalmente ligadas ao jejum e ao café puro, que reduz inflamações. Resultados podem variar."
               }
             ].map((item, index) => (
               <div key={index} className="bg-gray-800 rounded-2xl p-6">
