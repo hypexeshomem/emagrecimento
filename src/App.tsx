@@ -270,17 +270,12 @@ function App() {
                 {beforeAfterImages.map((item, index) => (
                   <div key={index} className="w-full flex-shrink-0 px-2 md:px-4">
                     <div className="bg-gray-800 rounded-2xl p-4 md:p-6 text-center shadow-2xl">
-                      <div className="relative">
-                        <img 
-                          src={item.src} 
-                          alt={item.alt} 
-                          className="w-full h-auto rounded-xl mb-4 shadow-lg max-h-96 object-cover"
-                        />
-                        <div className="absolute top-4 left-4 bg-orange-500 text-black px-3 py-1 rounded-full font-bold text-sm">
-                          ANTES e DEPOIS com apenas 14 dias
-                        </div>
-                      </div>
-                      <p className="text-yellow-500 font-bold text-lg md:text-xl">–7kg SEM ACADEMIA E SEM DIETA MALUCA</p>
+                      <img 
+                        src={item.src} 
+                        alt={item.alt} 
+                        className="w-full h-auto rounded-xl mb-4 shadow-lg max-h-96 object-cover"
+                      />
+                      <p className="text-yellow-500 font-bold text-lg md:text-xl">{item.result}</p>
                     </div>
                   </div>
                 ))}
@@ -508,24 +503,31 @@ function App() {
           <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
+                icon: "🌿",
                 question: "Posso tomar com adoçante?",
                 answer: "Ideal é puro. Mas stevia natural é ok."
               },
               {
+                icon: "💪",
                 question: "Preciso treinar?",
                 answer: "Não. O foco é o protocolo alimentar."
               },
               {
+                icon: "⏰",
                 question: "Em quanto tempo vejo resultado?",
                 answer: "Primeiros 3 dias já mostram resposta."
               },
               {
+                icon: "⚠️",
                 question: "Tem contraindicação?",
                 answer: "Grávidas, lactantes ou quem toma medicamentos deve consultar médico."
               }
             ].map((item, index) => (
               <div key={index} className="bg-gray-800 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-orange-500 mb-3">{item.question}</h3>
+                <h3 className="text-xl font-bold text-orange-500 mb-3 flex items-center">
+                  <span className="mr-3 text-2xl">{item.icon}</span>
+                  {item.question}
+                </h3>
                 <p className="text-gray-300 text-lg">{item.answer}</p>
               </div>
             ))}
