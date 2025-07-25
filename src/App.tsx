@@ -270,12 +270,17 @@ function App() {
                 {beforeAfterImages.map((item, index) => (
                   <div key={index} className="w-full flex-shrink-0 px-2 md:px-4">
                     <div className="bg-gray-800 rounded-2xl p-4 md:p-6 text-center shadow-2xl">
-                      <img 
-                        src={item.src} 
-                        alt={item.alt} 
-                        className="w-full h-auto rounded-xl mb-4 shadow-lg max-h-96 object-cover"
-                      />
-                      <p className="text-yellow-500 font-bold text-lg md:text-xl">{item.result}</p>
+                      <div className="relative">
+                        <img 
+                          src={item.src} 
+                          alt={item.alt} 
+                          className="w-full h-auto rounded-xl mb-4 shadow-lg max-h-96 object-cover"
+                        />
+                        <div className="absolute top-4 left-4 bg-orange-500 text-black px-3 py-1 rounded-full font-bold text-sm">
+                          ANTES e DEPOIS com apenas 14 dias
+                        </div>
+                      </div>
+                      <p className="text-yellow-500 font-bold text-lg md:text-xl">–7kg SEM ACADEMIA E SEM DIETA MALUCA</p>
                     </div>
                   </div>
                 ))}
