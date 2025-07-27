@@ -26,6 +26,22 @@
       fbq('init', '708454142168305');
       fbq('track', 'PageView');
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1717225695580956');
+fbq('track', 'PageView');
+
+
+  
+
       // ✅ Envia dados UTM de forma segura
       fbq('trackCustom', 'PageViewUTM', {
         utm_source: getUTM('utm_source'),
@@ -43,7 +59,14 @@
       a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
       document.head.appendChild(a);
     </script>
-
+<script>
+  window.pixelId = "6885687380ef17729f11eb26";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
     
   </head>
   <body>
@@ -51,6 +74,10 @@
     <script type="module" src="/src/main.tsx"></script>
 
 
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1717225695580956&ev=PageView&noscript=1"
+/></noscript>
+    
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=708454142168305&ev=PageView&noscript=1"
 /></noscript>
