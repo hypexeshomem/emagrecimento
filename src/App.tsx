@@ -748,7 +748,7 @@ function App() {
               <button 
                 onClick={scrollToOffer}
                 className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide w-full md:w-auto">
-                SIM, EU QUERO INICIAR MEU JEJUM COM CAFÉ E COM DEUS!
+                INICIAR MINHA TRANSFORMAÇÃO (ACESSO IMEDIATO)
               </button>
               
               <p className="text-sm text-gray-400">
