@@ -218,7 +218,7 @@ function App() {
             </h1>
             
             <p className="text-xl md:text-2xl font-bold text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Mulheres estão emagrecendo até <span className="text-orange-500">5kg por semana</span> com um ritual simples:<br/>
+              Mulheres comuns estão perdendo até <span className="text-orange-500">5kg por semana</span> com este protocolo simples que une a ciência do jejum com o poder da oração.:<br/>
               <span className="text-yellow-500">Jejum espiritual com café preto</span> — e a <span className="text-white">Palavra de Deus</span> como guia.
             </p>
           </div>
