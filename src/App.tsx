@@ -554,7 +554,7 @@ function App() {
               />
               
               <h3 className="text-3xl md:text-4xl font-black mb-8 text-white">
-                💣 TUDO ISSO POR APENAS:
+                💣 ACESSO IMEDIATO A TODO O PROTOCOLO.:
               </h3>
               
               <div className="mb-8">
