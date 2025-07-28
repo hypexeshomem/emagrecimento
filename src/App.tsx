@@ -212,9 +212,9 @@ function App() {
         <div className={`container mx-auto px-4 py-20 z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-              <span className="block text-white">PROPÓSITO SAGRADO</span>
-              <span className="block text-orange-500">QUE TRANSFORMA</span>
-              <span className="block text-white">CORPO E ESPÍRITO</span>
+              <span className="block text-white">O JEJUM COM CAFÉ PRETO</span>
+              <span className="block text-orange-500">QUE SECOU A BARRIGA</span>
+              <span className="block text-white">DE +3.500 MULHERES DE FÉ.</span>
             </h1>
             
             <p className="text-xl md:text-2xl font-bold text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
