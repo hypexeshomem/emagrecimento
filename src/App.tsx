@@ -238,7 +238,7 @@ function App() {
               onClick={scrollToOffer}
               className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide mb-6"
             >
-              ☕ QUERO EMAGRECER EM PROPÓSITO COM DEUS!
+              ☕ SIM, QUERO MEU CORPO TRANSFORMADO
             </button>
             
             <div className="text-center text-gray-300 text-lg">
