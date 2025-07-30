@@ -225,11 +225,17 @@ function App() {
 
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 mb-12">
             <div className="w-full max-w-3xl mx-auto">
-              <img 
-                src="https://i.postimg.cc/1Rpy5YcM/mulher-biblia-cafe.webp" 
-                alt="Jejum com Café Preto" 
-                className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
-              />
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300" style={{paddingBottom: '56.25%', height: 0}}>
+                <iframe 
+                  src="https://www.youtube.com/embed/stOR2ULglsY" 
+                  title="Protocolo Jejum com Café Preto - VSL"
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
 
