@@ -212,13 +212,13 @@ function App() {
         <div className={`container mx-auto px-4 py-20 z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-              <span className="block text-white">O JEJUM COM CAFÉ PRETO</span>
-              <span className="block text-orange-500">QUE SECOU A BARRIGA</span>
-              <span className="block text-white">DE +3.500 MULHERES DE FÉ.</span>
+              <span className="block text-white">PROPÓSITO SAGRADO</span>
+              <span className="block text-orange-500">QUE TRANSFORMA</span>
+              <span className="block text-white">CORPO E ESPÍRITO</span>
             </h1>
             
             <p className="text-xl md:text-2xl font-bold text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Mulheres comuns estão perdendo até <span className="text-orange-500">5kg por semana</span> com este protocolo simples que une a ciência do jejum com o poder da oração.:<br/>
+              Mulheres estão emagrecendo até <span className="text-orange-500">5kg por semana</span> com um ritual simples:<br/>
               <span className="text-yellow-500">Jejum espiritual com café preto</span> — e a <span className="text-white">Palavra de Deus</span> como guia.
             </p>
           </div>
@@ -238,7 +238,7 @@ function App() {
               onClick={scrollToOffer}
               className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide mb-6"
             >
-              ☕ SIM, QUERO MEU CORPO TRANSFORMADO
+              ☕ QUERO EMAGRECER EM PROPÓSITO COM DEUS!
             </button>
             
             <div className="text-center text-gray-300 text-lg">
@@ -554,7 +554,7 @@ function App() {
               />
               
               <h3 className="text-3xl md:text-4xl font-black mb-8 text-white">
-                💣 ACESSO IMEDIATO A TODO O PROTOCOLO.:
+                💣 TUDO ISSO POR APENAS:
               </h3>
               
               <div className="mb-8">
@@ -748,7 +748,7 @@ function App() {
               <button 
                 onClick={scrollToOffer}
                 className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide w-full md:w-auto">
-                INICIAR MINHA TRANSFORMAÇÃO (ACESSO IMEDIATO)
+                SIM, EU QUERO INICIAR MEU JEJUM COM CAFÉ E COM DEUS!
               </button>
               
               <p className="text-sm text-gray-400">

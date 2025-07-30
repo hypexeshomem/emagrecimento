@@ -1,78 +1,62 @@
 <!doctype html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página de Vendas - Protocolo Jejum com Café Preto</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Vendas - Protocolo Jejum com Café Preto</title>
 
-  <!-- Meta Pixel 1 -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+<script>
+      // ✅ Define a função getUTM antes de usar
+      function getUTM(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name) || '';
+      }
+
+      // ✅ Pixel Meta
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
       n.queue=[];t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '708454142168305');
+      fbq('track', 'PageView');
+
+      // ✅ Envia dados UTM de forma segura
+      fbq('trackCustom', 'PageViewUTM', {
+        utm_source: getUTM('utm_source'),
+        utm_medium: getUTM('utm_medium'),
+        utm_campaign: getUTM('utm_campaign'),
+        utm_term: getUTM('utm_term'),
+        utm_content: getUTM('utm_content')
+      });
+
+      // ✅ Pixel da UTMify
+      window.pixelId = "68803bdae0fb698952fb84f4";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+
     
-    fbq('init', '708454142168305');
-    fbq('init', '1717225695580956');
-    fbq('track', 'PageView');
-  </script>
+    <script type="module" crossorigin src="/assets/index-D2zBvXN5.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B9sQZyci.css">
+  </head>
+  <body>
+    <div id="root"></div>
 
-  <!-- UTM Tracker -->
-  <script>
-    function getUTM(name) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(name) || '';
-    }
 
-    fbq('trackCustom', 'PageViewUTM', {
-      utm_source: getUTM('utm_source'),
-      utm_medium: getUTM('utm_medium'),
-      utm_campaign: getUTM('utm_campaign'),
-      utm_term: getUTM('utm_term'),
-      utm_content: getUTM('utm_content')
-    });
-  </script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=708454142168305&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
-  <!-- UTMify Pixel 1 -->
-  <script>
-    var a = document.createElement("script");
-    a.setAttribute("async", "");
-    a.setAttribute("defer", "");
-    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-    a.setAttribute("data-pixel-id", "68803bdae0fb698952fb84f4");
-    document.head.appendChild(a);
-  </script>
-
-  <!-- UTMify Pixel 2 -->
-  <script>
-    var b = document.createElement("script");
-    b.setAttribute("async", "");
-    b.setAttribute("defer", "");
-    b.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-    b.setAttribute("data-pixel-id", "6885687380ef17729f11eb26");
-    document.head.appendChild(b);
-  </script>
-
-  <script type="module" crossorigin src="/assets/index-D2zBvXN5.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-B9sQZyci.css">
-</head>
-<body>
-  <div id="root"></div>
-
-  <!-- Pixel Meta noscript -->
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1717225695580956&ev=PageView&noscript=1" />
-  </noscript>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=708454142168305&ev=PageView&noscript=1" />
-  </noscript>
-
-</body>
+    
+  </body>
 </html>
