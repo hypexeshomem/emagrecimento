@@ -227,7 +227,7 @@ function App() {
             <div className="w-full max-w-3xl mx-auto">
               <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300" style={{paddingBottom: '100%', height: 0}}>
                 <iframe 
-                  src="https://youtube.com/shorts/MV1kgQ6VRus" 
+                  src="https://youtube.com/embed/MV1kgQ6VRus" 
                   title="Protocolo Jejum com Café Preto - VSL"
                   className="absolute top-0 left-0 w-full h-full"
                   frameBorder="0" 
