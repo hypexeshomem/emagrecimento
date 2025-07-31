@@ -225,7 +225,7 @@ function App() {
 
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 mb-12">
             <div className="w-full max-w-3xl mx-auto">
-              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300" style={{paddingBottom: '100%', height: 0}}>
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300" style={{paddingBottom: '177.78%%', height: 0}}>
                 <iframe 
                   src="https://youtube.com/embed/MV1kgQ6VRus" 
                   title="Protocolo Jejum com Café Preto - VSL"
