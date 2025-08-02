@@ -1206,8 +1206,9 @@ function App() {
                 💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
               </span>
             </button>
-
+</div>
         </div>
+          
       </section>
 
       {/* Footer */}
