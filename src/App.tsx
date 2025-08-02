@@ -1219,44 +1219,21 @@ function App() {
         </div>
       </footer>
 
-      {/* BOTÃO FLUTUANTE FIXO */}
-      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 lg:bottom-4 lg:right-4 z-50 md:block">
-        {/* Versão Desktop */}
-        <div className="hidden md:block">
-          <button
-            onClick={scrollToOffer}
-            className="group bg-[#4D3319] text-[#FFF7E6] font-medium px-6 py-3.5 rounded-full shadow-lg hover:bg-[#6E4B2A] hover:font-bold transition-all duration-300 transform hover:scale-105"
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-            }}
-          >
-            <div className="text-center">
-              <div className="text-sm font-semibold">Entrar no Propósito Agora</div>
-              <div className="text-xs opacity-90 mt-1">Clique aqui e inicie o Jejum com Café Preto</div>
-            </div>
-          </button>
-        </div>
-      </div>
-
-      {/* Versão Mobile - Centralizado na parte inferior */}
-      <div className="fixed bottom-4 left-[5%] right-[5%] z-50 md:hidden">
-        <button
-          onClick={scrollToOffer}
-          className="w-full bg-[#4D3319] text-[#FFF7E6] font-medium py-3.5 px-6 rounded-full shadow-lg hover:bg-[#6E4B2A] hover:font-bold transition-all duration-300"
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-          }}
-        >
-          <div className="text-center">
-            <div className="text-sm font-semibold">Entrar no Propósito Agora</div>
-            <div className="text-xs opacity-90 mt-1">Clique aqui e inicie o Jejum com Café Preto</div>
-          </div>
-        </button>
-      </div>
+   {/* BOTÃO FLUTUANTE FIXO MELHORADO */}
+<div className="fixed bottom-20 right-4 left-4 md:bottom-6 md:right-6 md:left-auto z-[999] flex justify-center md:justify-end">
+  <button
+    onClick={scrollToOffer}
+    className="w-full md:w-auto bg-[#4D3319] text-[#FFF7E6] font-medium py-3.5 px-6 rounded-full shadow-lg hover:bg-[#6E4B2A] hover:font-bold transition-all duration-300 transform hover:scale-105"
+    style={{
+      fontFamily: "'Poppins', sans-serif",
+      boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+    }}
+  >
+    <div className="text-center">
+      <div className="text-sm font-semibold">Entrar no Propósito Agora</div>
+      <div className="text-xs opacity-90 mt-1">Clique aqui e inicie o Jejum com Café Preto</div>
     </div>
-  );
-}
+  </button>
+</div>
 
 export default App;
