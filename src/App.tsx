@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star, Shield, Gift, Clock, Users, TrendingUp, CheckCircle, AlertTriangle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Shield, Gift, Clock, Users, TrendingUp, CheckCircle, AlertTriangle, X, Brain, Zap, Heart, MessageCircle } from 'lucide-react';
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,10 +8,39 @@ function App() {
   const [showNotification, setShowNotification] = useState(true);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Check for cookie consent
+    const checkCookieConsent = () => {
+      const cookies = document.cookie.split(';');
+      const consentCookie = cookies.find(cookie => cookie.trim().startsWith('cookie_consent='));
+      
+      if (!consentCookie || !consentCookie.includes('accepted')) {
+        setShowCookieBanner(true);
+      }
+    };
+
+    // Run on DOMContentLoaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkCookieConsent);
+    } else {
+      checkCookieConsent();
+    }
+
+    return () => {
+      document.removeEventListener('DOMContentLoaded', checkCookieConsent);
+    };
   }, []);
+
+  const acceptCookies = () => {
+    const expiryDate = new Date();
+    expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+    document.cookie = `cookie_consent=accepted; expires=${expiryDate.toUTCString()}; path=/`;
+    setShowCookieBanner(false);
+  };
 
   const notifications = [
     {
@@ -165,6 +194,33 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* BANNER DE COOKIES */}
+      {showCookieBanner && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-t border-gray-700 p-4 shadow-2xl">
+          <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-white text-sm md:text-base">
+                Este site utiliza cookies para garantir que você tenha a melhor experiência. Ao continuar, você aceita o uso de cookies conforme nossa Política de Privacidade.
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={acceptCookies}
+                className="bg-orange-500 hover:bg-orange-600 text-black font-bold px-6 py-2 rounded-full transition-colors duration-300"
+              >
+                Aceitar
+              </button>
+              <button
+                onClick={() => setShowCookieBanner(false)}
+                className="text-gray-400 hover:text-white transition-colors duration-300 p-1"
+              >
+                <X size={20} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* NOTIFICAÇÃO DE VENDAS */}
       <div className={`fixed top-3 left-3 md:top-6 md:left-6 z-50 transition-all duration-500 ${showNotification ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
         <div className="bg-gradient-to-r from-orange-900/95 to-amber-800/95 backdrop-blur-sm rounded-xl md:rounded-2xl p-2 md:p-4 shadow-2xl border border-orange-500/20 max-w-xs md:max-w-sm">
@@ -205,7 +261,7 @@ function App() {
         </div>
       </div>
 
-      {/* SEÇÃO 1 - HERO SECTION */}
+      {/* SEÇÃO 1 - CHAMADA ESPIRITUAL EMOCIONAL */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-yellow-500/10"></div>
         
@@ -225,16 +281,20 @@ function App() {
 
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 mb-12">
             <div className="w-full max-w-3xl mx-auto">
-              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300" style={{paddingBottom: '177.78%', height: 0}}>
-                <iframe 
-                  src="https://youtube.com/embed/MV1kgQ6VRus" 
-                  title="Protocolo Jejum com Café Preto - VSL"
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                  loading="lazy"
-                />
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <script src="https://fast.wistia.com/player.js" async></script>
+                <script src="https://fast.wistia.com/embed/gc9ywrd50y.js" async type="module"></script>
+                <style dangerouslySetInnerHTML={{
+                  __html: `
+                    wistia-player[media-id='gc9ywrd50y']:not(:defined) { 
+                      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/gc9ywrd50y/swatch'); 
+                      display: block; 
+                      filter: blur(5px); 
+                      padding-top:100.0%; 
+                    }
+                  `
+                }} />
+                <wistia-player media-id="gc9ywrd50y" aspect="1.0"></wistia-player>
               </div>
             </div>
           </div>
@@ -254,7 +314,570 @@ function App() {
         </div>
       </section>
 
-      {/* SEÇÃO 2 - CARROSSEL DE ANTES E DEPOIS */}
+      {/* SEÇÃO 2 - IDENTIFICAÇÃO COM A DOR */}
+      <section className="py-20 bg-gradient-to-br from-red-500/10 via-black to-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-12">
+              <div className="w-24 h-24 mx-auto mb-8 bg-red-500/20 rounded-full flex items-center justify-center">
+                <span className="text-4xl">😔</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-black mb-8 text-white">
+                VOCÊ RECONHECE ESSES <span className="text-red-500">SINAIS</span>?
+              </h2>
+            </div>
+            
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
+              <div className="grid md:grid-cols-2 gap-6 text-left">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <p className="text-lg text-gray-300">Cansaço ao acordar, mesmo dormindo 8 horas</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <p className="text-lg text-gray-300">Sensação constante de inchaço</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <p className="text-lg text-gray-300">Perda de foco durante o dia</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <p className="text-lg text-gray-300">Desânimo espiritual</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <p className="text-lg text-gray-300">Ansiedade alimentar</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <p className="text-lg text-gray-300">Baixa autoestima</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-gray-700">
+                <p className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  Se isso é familiar, <span className="text-orange-500">você não está sozinha</span>.
+                </p>
+              </div>
+            </div>
+            
+            <button 
+              onClick={scrollToOffer}
+              className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
+              ☕ QUERO SAIR DESSE CICLO
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 3 - CONFLITO COM O MERCADO ATUAL */}
+      <section className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-12">
+              <div className="w-24 h-24 mx-auto mb-8 bg-red-500/20 rounded-full flex items-center justify-center">
+                <X className="w-12 h-12 text-red-500" />
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-black mb-8 text-white">
+                PARE DE CAIR NAS <span className="text-red-500">MESMAS ARMADILHAS</span>
+              </h2>
+            </div>
+            
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="relative mb-4">
+                    <div className="w-16 h-16 mx-auto bg-red-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">🥗</span>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                      <X className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-red-500 mb-2">Dietas Genéricas</h3>
+                  <p className="text-gray-300">Funcionam por 2 semanas, depois você volta ao peso anterior</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="relative mb-4">
+                    <div className="w-16 h-16 mx-auto bg-red-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">🍵</span>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                      <X className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-red-500 mb-2">Chás Milagrosos</h3>
+                  <p className="text-gray-300">Promessas vazias que só drenam sua carteira</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="relative mb-4">
+                    <div className="w-16 h-16 mx-auto bg-red-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">💊</span>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                      <X className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-red-500 mb-2">Jejuns Aleatórios</h3>
+                  <p className="text-gray-300">Sem propósito e ciência, tudo é temporário</p>
+                </div>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-gray-700">
+                <p className="text-xl md:text-2xl text-white leading-relaxed">
+                  <span className="text-red-500 font-bold">Sem propósito e ciência</span>, qualquer método é apenas mais uma tentativa frustrada.
+                </p>
+              </div>
+            </div>
+            
+            <button 
+              onClick={scrollToOffer}
+              className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
+              ☕ QUERO UM MÉTODO REAL
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 4 - INTRODUÇÃO AO MÉTODO */}
+      <section className="py-20 bg-gradient-to-br from-orange-500/10 via-black to-yellow-500/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-12">
+              <div className="flex items-center justify-center space-x-4 mb-8">
+                <div className="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-3xl">☕</span>
+                </div>
+                <Zap className="w-8 h-8 text-yellow-500" />
+                <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-3xl">⚡</span>
+                </div>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-black mb-8 text-white">
+                CONHEÇA O <span className="text-orange-500">JEJUM COM CAFÉ PRETO</span>
+              </h2>
+            </div>
+            
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
+              <p className="text-xl md:text-2xl text-white leading-relaxed mb-8">
+                <span className="text-orange-500 font-bold">Jejum com Café Preto</span> é um protocolo <span className="text-yellow-500 font-bold">simples</span>, <span className="text-green-500 font-bold">ancestral</span> e <span className="text-blue-500 font-bold">validado pela ciência</span>.
+              </p>
+              
+              <p className="text-xl md:text-2xl text-white leading-relaxed mb-8">
+                Nada de modinha.
+              </p>
+              
+              <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 rounded-xl p-6 mb-8">
+                <p className="text-xl md:text-2xl text-white leading-relaxed">
+                  Você acorda, toma um café puro e deixa o <span className="text-orange-500 font-bold">corpo</span> e a <span className="text-yellow-500 font-bold">mente</span> entrarem em modo de <span className="text-green-500 font-bold">cura</span>.
+                </p>
+              </div>
+            </div>
+            
+            <button 
+              onClick={scrollToOffer}
+              className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
+              ☕ QUERO CONHECER O MÉTODO
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 5 - EXPLICAÇÃO CIENTÍFICA */}
+      <section className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
+              <span className="text-blue-500">CIÊNCIA</span> + <span className="text-yellow-500">FÉ</span> = <span className="text-green-500">RESULTADO</span>
+            </h2>
+            
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Bloco Científico */}
+              <div className="bg-blue-500/10 rounded-2xl p-8">
+                <div className="flex items-center mb-6">
+                  <Brain className="w-12 h-12 text-blue-500 mr-4" />
+                  <h3 className="text-2xl font-black text-blue-500">BLOCO CIENTÍFICO</h3>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white text-sm font-bold">🔥</span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-2">Lipólise</h4>
+                      <p className="text-gray-300">Queima gordura sem atacar músculos</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white text-sm font-bold">⚡</span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-2">Aumento de Dopamina</h4>
+                      <p className="text-gray-300">Mais foco e energia natural</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white text-sm font-bold">🧬</span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-2">Autofagia</h4>
+                      <p className="text-gray-300">Limpeza celular profunda</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white text-sm font-bold">📊</span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-2">Estabilidade de Insulina</h4>
+                      <p className="text-gray-300">Sem compulsão alimentar</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Bloco Espiritual */}
+              <div className="bg-yellow-500/10 rounded-2xl p-8">
+                <div className="flex items-center mb-6">
+                  <Heart className="w-12 h-12 text-yellow-500 mr-4" />
+                  <h3 className="text-2xl font-black text-yellow-500">BLOCO ESPIRITUAL</h3>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-black text-sm font-bold">📖</span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-2">Jejum como Prática Bíblica</h4>
+                      <p className="text-gray-300">Tradição milenar de purificação</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-black text-sm font-bold">🙏</span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-2">Conexão Profunda com Deus</h4>
+                      <p className="text-gray-300">Fortalecimento da fé e propósito</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-black text-sm font-bold">✨</span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-2">Renovação Interior</h4>
+                      <p className="text-gray-300">Transformação que vem de dentro</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-black text-sm font-bold">💪</span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-2">Disciplina Espiritual</h4>
+                      <p className="text-gray-300">Fortalecimento da vontade</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center mt-12">
+              <button 
+                onClick={scrollToOffer}
+                className="bg-gradient-to-r from-blue-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-blue-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
+                ☕ QUERO ALIAR CIÊNCIA E FÉ
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 6 - CAFÉ GPT */}
+      <section className="py-20 bg-gradient-to-br from-purple-500/10 via-black to-blue-500/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-12">
+              <div className="w-24 h-24 mx-auto mb-8 bg-purple-500/20 rounded-full flex items-center justify-center">
+                <MessageCircle className="w-12 h-12 text-purple-500" />
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-black mb-8 text-white">
+                CONHEÇA A <span className="text-purple-500">CAFÉ GPT</span>
+              </h2>
+              
+              <p className="text-xl md:text-2xl text-gray-300 mb-8">
+                A IA que acompanha você 24h, enviando versículos, dicas alimentares, motivação e monitoramento do progresso.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-purple-500 mb-6">Benefícios da Café GPT:</h3>
+                <div className="space-y-4 text-left">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    <p className="text-gray-300">Motivação diária personalizada</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    <p className="text-gray-300">Versículo e reflexão matinal</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    <p className="text-gray-300">Ajustes personalizados no protocolo</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    <p className="text-gray-300">Check-ins emocionais</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    <p className="text-gray-300">Receitas leves e saudáveis</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    <p className="text-gray-300">Lembretes de quebra de jejum</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-purple-500/10 rounded-2xl p-8">
+                <h3 className="text-xl font-bold text-white mb-4">Exemplo de Conversa:</h3>
+                <div className="space-y-3 text-left">
+                  <div className="bg-purple-500/20 rounded-lg p-3">
+                    <p className="text-sm text-purple-300 font-semibold">Café GPT</p>
+                    <p className="text-white">Bom dia! Como você está se sentindo hoje? 🌅</p>
+                  </div>
+                  <div className="bg-gray-700/50 rounded-lg p-3 ml-4">
+                    <p className="text-sm text-gray-400 font-semibold">Você</p>
+                    <p className="text-white">Meio desanimada...</p>
+                  </div>
+                  <div className="bg-purple-500/20 rounded-lg p-3">
+                    <p className="text-sm text-purple-300 font-semibold">Café GPT</p>
+                    <p className="text-white">Entendo. Lembre-se: "Posso todas as coisas naquele que me fortalece" (Filipenses 4:13). Que tal começarmos com seu café e uma oração? ☕🙏</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button 
+              onClick={scrollToOffer}
+              className="bg-gradient-to-r from-purple-500 to-blue-500 text-white font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-purple-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
+              ☕ QUERO O SUPORTE DA CAFÉ GPT
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 7 - COMO FUNCIONA O PROTOCOLO */}
+      <section className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-black mb-16 text-white">
+              COMO FUNCIONA O <span className="text-orange-500">PROTOCOLO</span>
+            </h2>
+            
+            <div className="space-y-8">
+              <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 flex items-center space-x-6">
+                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-black text-xl">1</span>
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <Clock className="w-6 h-6 text-orange-500" />
+                    <h3 className="text-xl font-bold text-white">Café em Jejum</h3>
+                  </div>
+                  <p className="text-gray-300">Acorde e tome seu café preto, sem açúcar ou adoçante</p>
+                </div>
+              </div>
+              
+              <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 flex items-center space-x-6">
+                <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-black font-black text-xl">2</span>
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <span className="text-2xl">📖</span>
+                    <h3 className="text-xl font-bold text-white">Oração Devocional</h3>
+                  </div>
+                  <p className="text-gray-300">Dedique 10 minutos para oração e leitura bíblica</p>
+                </div>
+              </div>
+              
+              <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 flex items-center space-x-6">
+                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-black text-xl">3</span>
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <span className="text-2xl">⏰</span>
+                    <h3 className="text-xl font-bold text-white">Jejum de 12 a 16h</h3>
+                  </div>
+                  <p className="text-gray-300">Mantenha o jejum pelo período determinado</p>
+                </div>
+              </div>
+              
+              <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 flex items-center space-x-6">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-black text-xl">4</span>
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <span className="text-2xl">🍽️</span>
+                    <h3 className="text-xl font-bold text-white">Quebra Leve</h3>
+                  </div>
+                  <p className="text-gray-300">Alimente-se de forma consciente e saudável</p>
+                </div>
+              </div>
+              
+              <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 flex items-center space-x-6">
+                <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-black text-xl">5</span>
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <MessageCircle className="w-6 h-6 text-purple-500" />
+                    <h3 className="text-xl font-bold text-white">Mensagem da Café GPT</h3>
+                  </div>
+                  <p className="text-gray-300">Receba orientação personalizada e motivação</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-12">
+              <button 
+                onClick={scrollToOffer}
+                className="bg-gradient-to-r from-orange-500 to-purple-500 text-white font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
+                ☕ QUERO SEGUIR ESSE RITUAL
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 8 - AUTORIDADE DA CRIADORA */}
+      <section className="py-20 bg-gradient-to-br from-gray-800 via-black to-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Imagem da Especialista */}
+              <div className="order-2 lg:order-1">
+                <div className="relative">
+                  <img 
+                    src="https://i.postimg.cc/CxGdqxgB/expert-jejum-cafe.webp" 
+                    alt="Dra. Especialista em Nutrição Funcional"
+                    className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
+                  />
+                  <div className="absolute -bottom-4 -right-4 bg-orange-500 text-black px-4 py-2 rounded-full font-bold text-sm">
+                    +8 anos de experiência
+                  </div>
+                </div>
+              </div>
+              
+              {/* Conteúdo */}
+              <div className="order-1 lg:order-2">
+                <h2 className="text-3xl md:text-4xl font-black mb-6 text-white">
+                  MÉTODO CRIADO POR QUEM TEM <span className="text-orange-500">CIÊNCIA NA MENTE</span> E <span className="text-yellow-500">DEUS NO CORAÇÃO</span>
+                </h2>
+                
+                <div className="space-y-6 text-gray-300">
+                  <div className="bg-gray-800/50 rounded-xl p-6 border-l-4 border-orange-500">
+                    <p className="text-lg leading-relaxed text-white font-medium">
+                      "Eu atendo mulheres cristãs todos os dias.<br/>
+                      Percebi que não é só sobre perder peso...<br/>
+                      É sobre resgatar <span className="text-orange-500">autoestima</span>, <span className="text-yellow-500">fé</span> e <span className="text-green-500">saúde</span>.<br/>
+                      O 'Jejum com Café Preto\' une a ciência com o propósito espiritual."
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-4 pt-4">
+                    <div className="bg-orange-500/20 px-4 py-2 rounded-full">
+                      <span className="text-orange-500 font-semibold">✓ Nutrição Clínica Funcional</span>
+                    </div>
+                    <div className="bg-yellow-500/20 px-4 py-2 rounded-full">
+                      <span className="text-yellow-500 font-semibold">✓ Especialista em Emagrecimento</span>
+                    </div>
+                    <div className="bg-green-500/20 px-4 py-2 rounded-full">
+                      <span className="text-green-500 font-semibold">✓ +19.500 mulheres atendidas</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 9 - FAQ */}
+      <section className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
+            PERGUNTAS <span className="text-orange-500">FREQUENTES</span>
+          </h2>
+          
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                question: "Jejum com café preto é seguro?",
+                answer: "Sim, é um método natural usado há séculos. Sempre consulte um médico se tiver condições específicas."
+              },
+              {
+                question: "Posso tomar mais de uma xícara?",
+                answer: "O protocolo recomenda 1 xícara em jejum. Mais pode ser consumido durante o dia conforme tolerância."
+              },
+              {
+                question: "Posso adaptar o protocolo?",
+                answer: "Sim, o guia inclui adaptações para diferentes perfis e necessidades."
+              },
+              {
+                question: "Como acesso o material?",
+                answer: "Imediatamente após a compra, você recebe o acesso por email."
+              },
+              {
+                question: "Tem grupo de suporte?",
+                answer: "Sim, grupo exclusivo no WhatsApp para os primeiros 300 participantes."
+              },
+              {
+                question: "Funciona mesmo se eu não fizer dieta?",
+                answer: "O protocolo é focado no jejum com café. Não requer dieta restritiva."
+              },
+              {
+                question: "Ajuda com dores de cabeça ou enxaqueca?",
+                answer: "Muitas mulheres relataram redução ou desaparecimento das crises, principalmente ligadas ao jejum e ao café puro, que reduz inflamações. Resultados podem variar."
+              }
+            ].map((item, index) => (
+              <div key={index} className="bg-gray-800 rounded-2xl p-6">
+                <h3 className="text-xl font-bold text-orange-500 mb-3">{item.question}</h3>
+                <p className="text-gray-300 text-lg">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 10 - RESULTADOS REAIS */}
       <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
@@ -320,51 +943,7 @@ function App() {
         </div>
       </section>
 
-      {/* SEÇÃO 3 - DOR DO LEAD */}
-      <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-black mb-12 text-white">
-              NÃO É SÓ DIETA. É UMA <span className="text-orange-500">LUTA QUE COMEÇA NO ESPÍRITO</span>.
-            </h2>
-            
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-12">
-              <p className="text-xl md:text-2xl leading-relaxed mb-6 text-gray-300">
-                Você tentou de tudo.
-              </p>
-              
-              <p className="text-xl md:text-2xl leading-relaxed mb-6 text-gray-300">
-                Mas a <span className="text-red-500 font-bold">ansiedade</span>, o <span className="text-red-500 font-bold">desânimo</span> e a <span className="text-red-500 font-bold">culpa</span> continuam te vencendo.
-              </p>
-              
-              <p className="text-xl md:text-2xl leading-relaxed mb-6 text-gray-300">
-                Seu corpo está em modo de defesa.
-              </p>
-              
-              <div className="text-xl md:text-2xl leading-relaxed mb-6 text-gray-300">
-                <p className="mb-4">E sabe o que isso causa?</p>
-                <div className="space-y-2 text-lg md:text-xl">
-                  <p>➤ Dificuldade de emagrecer.</p>
-                  <p>➤ Enxaquecas constantes.</p>
-                  <p>➤ Cansaço mental.</p>
-                </div>
-              </div>
-              
-              <p className="text-2xl md:text-3xl font-bold text-white mb-8">
-                Mas sua alma pede libertação.
-              </p>
-            </div>
-            
-            <div className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 rounded-2xl p-8 md:p-12">
-              <p className="text-xl md:text-2xl leading-relaxed mb-6 text-white">
-                O protocolo de jejum com café preto ativa a <span className="text-orange-500 font-bold">lipólise física</span> e o <span className="text-yellow-500 font-bold">renovo espiritual</span>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 4 - PROVAS SOCIAIS + AVALIAÇÕES */}
+      {/* SEÇÃO 11 - DEPOIMENTOS */}
       <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-black text-center mb-8 text-white">
@@ -397,140 +976,7 @@ function App() {
         </div>
       </section>
 
-      {/* SEÇÃO ESPECIALISTA - INSTITUCIONAL */}
-      <section className="py-20 bg-gradient-to-br from-gray-800 via-black to-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Imagem da Especialista */}
-              <div className="order-2 lg:order-1">
-                <div className="relative">
-                  <img 
-                    src="https://i.postimg.cc/CxGdqxgB/expert-jejum-cafe.webp" 
-                    alt="Dra. Especialista em Nutrição Funcional"
-                    className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
-                  />
-                  <div className="absolute -bottom-4 -right-4 bg-orange-500 text-black px-4 py-2 rounded-full font-bold text-sm">
-                    +8 anos de experiência
-                  </div>
-                </div>
-              </div>
-              
-              {/* Conteúdo */}
-              <div className="order-1 lg:order-2">
-                <h2 className="text-3xl md:text-4xl font-black mb-6 text-white">
-                  MÉTODO CRIADO POR QUEM TEM <span className="text-orange-500">CIÊNCIA NA MENTE</span> E <span className="text-yellow-500">DEUS NO CORAÇÃO</span>
-                </h2>
-                
-                <div className="space-y-6 text-gray-300">
-                  <div className="bg-gray-800/50 rounded-xl p-6 border-l-4 border-orange-500">
-                    <p className="text-lg leading-relaxed text-white font-medium">
-                      "Eu atendo mulheres cristãs todos os dias.<br/>
-                      Percebi que não é só sobre perder peso...<br/>
-                      É sobre resgatar <span className="text-orange-500">autoestima</span>, <span className="text-yellow-500">fé</span> e <span className="text-green-500">saúde</span>.<br/>
-                      O 'Jejum com Café Preto\' une a ciência com o propósito espiritual."
-                    </p>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-4 pt-4">
-                    <div className="bg-orange-500/20 px-4 py-2 rounded-full">
-                      <span className="text-orange-500 font-semibold">✓ Nutrição Clínica Funcional</span>
-                    </div>
-                    <div className="bg-yellow-500/20 px-4 py-2 rounded-full">
-                      <span className="text-yellow-500 font-semibold">✓ Especialista em Emagrecimento</span>
-                    </div>
-                    <div className="bg-green-500/20 px-4 py-2 rounded-full">
-                      <span className="text-green-500 font-semibold">✓ +19.500 mulheres atendidas</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 5 - NÚMEROS IMPACTANTES */}
-      <section className="py-20 bg-gradient-to-br from-orange-500/10 via-black to-yellow-500/10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
-            NÚMEROS QUE <span className="text-orange-500">IMPRESSIONAM</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
-              <Users className="w-12 h-12 text-orange-500 mx-auto mb-4" />
-              <h3 className="text-3xl font-black text-white mb-2">+19.500</h3>
-              <p className="text-gray-300">pessoas testaram o protocolo em 2025</p>
-            </div>
-            
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
-              <TrendingUp className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
-              <h3 className="text-3xl font-black text-white mb-2">92%</h3>
-              <p className="text-gray-300">relataram perda de peso nos primeiros 7 dias</p>
-            </div>
-            
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
-              <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
-              <h3 className="text-3xl font-black text-white mb-2">87%</h3>
-              <p className="text-gray-300">afirmaram melhora na disposição, no humor e redução de dores como enxaqueca</p>
-            </div>
-            
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
-              <Star className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
-              <h3 className="text-3xl font-black text-white mb-2">9.4</h3>
-              <p className="text-gray-300">de satisfação média nas avaliações</p>
-            </div>
-            
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center md:col-span-2 lg:col-span-2">
-              <div className="flex items-center justify-center mb-4">
-                <span className="text-4xl mr-4">☕</span>
-                <span className="text-4xl">→</span>
-                <span className="text-4xl ml-4">💪</span>
-              </div>
-              <h3 className="text-2xl font-black text-white mb-2">1 copo de café</h3>
-              <p className="text-gray-300">1 corpo em transformação</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 6 - TIRA-DÚVIDAS INTELIGENTE */}
-      <section className="py-20 bg-gray-900">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
-            DÚVIDAS <span className="text-orange-500">RÁPIDAS</span>
-          </h2>
-          
-          <div className="max-w-4xl mx-auto space-y-6">
-            {[
-              {
-                question: "Posso tomar com adoçante?",
-                answer: "Ideal é puro. Mas stevia natural é ok."
-              },
-              {
-                question: "Preciso treinar?",
-                answer: "Não. O foco é o protocolo alimentar."
-              },
-              {
-                question: "Em quanto tempo vejo resultado?",
-                answer: "Primeiros 3 dias já mostram resposta."
-              },
-              {
-                question: "Tem contraindicação?",
-                answer: "Grávidas, lactantes ou quem toma medicamentos deve consultar médico."
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-gray-800 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-orange-500 mb-3">{item.question}</h3>
-                <p className="text-gray-300 text-lg">{item.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 7 - O QUE VOCÊ RECEBE + OFERTA PRINCIPAL */}
+      {/* SEÇÃO 12 - OFERTA */}
       <section id="offer-section" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -579,50 +1025,7 @@ function App() {
         </div>
       </section>
 
-      {/* SEÇÃO 8 - BÔNUS EXCLUSIVOS */}
-      <section className="py-20 bg-gray-900">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-8 text-white">
-            PRESENTES PARA <span className="text-orange-500">FORTALECER SUA JORNADA</span>
-          </h2>
-          
-          <p className="text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
-            Receba ferramentas extras para fortalecer corpo, alma e propósito
-          </p>
-          
-          <div className="max-w-4xl mx-auto space-y-6 mb-12">
-            {[
-              {
-                icon: <Gift className="w-8 h-8 text-yellow-500" />,
-                title: "📓 Receitas com Café para quebrar a gordura e fortalecer a mente"
-              },
-              {
-                icon: <CheckCircle className="w-8 h-8 text-green-500" />,
-                title: "✅ Checklist espiritual e físico diário"
-              },
-              {
-                icon: <Users className="w-8 h-8 text-blue-500" />,
-                title: "👭 Grupo de apoio com outras mulheres de fé"
-              }
-            ].map((bonus, index) => (
-              <div key={index} className="bg-gray-800 rounded-2xl p-6 flex items-center space-x-4">
-                {bonus.icon}
-                <h3 className="text-xl font-bold text-white">{bonus.title}</h3>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center">
-            <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
-              <span onClick={scrollToOffer} className="cursor-pointer">
-                💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
-              </span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 9 - GARANTIA */}
+      {/* SEÇÃO 13 - GARANTIA */}
       <section className="py-20 bg-gradient-to-br from-green-500/10 via-black to-blue-500/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -683,54 +1086,7 @@ function App() {
         </div>
       </section>
 
-      {/* SEÇÃO 10 - FAQ */}
-      <section className="py-20 bg-gray-900">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
-            PERGUNTAS <span className="text-orange-500">FREQUENTES</span>
-          </h2>
-          
-          <div className="max-w-4xl mx-auto space-y-6">
-            {[
-              {
-                question: "Jejum com café preto é seguro?",
-                answer: "Sim, é um método natural usado há séculos. Sempre consulte um médico se tiver condições específicas."
-              },
-              {
-                question: "Posso tomar mais de uma xícara?",
-                answer: "O protocolo recomenda 1 xícara em jejum. Mais pode ser consumido durante o dia conforme tolerância."
-              },
-              {
-                question: "Posso adaptar o protocolo?",
-                answer: "Sim, o guia inclui adaptações para diferentes perfis e necessidades."
-              },
-              {
-                question: "Como acesso o material?",
-                answer: "Imediatamente após a compra, você recebe o acesso por email."
-              },
-              {
-                question: "Tem grupo de suporte?",
-                answer: "Sim, grupo exclusivo no WhatsApp para os primeiros 300 participantes."
-              },
-              {
-                question: "Funciona mesmo se eu não fizer dieta?",
-                answer: "O protocolo é focado no jejum com café. Não requer dieta restritiva."
-              },
-              {
-                question: "Ajuda com dores de cabeça ou enxaqueca?",
-                answer: "Muitas mulheres relataram redução ou desaparecimento das crises, principalmente ligadas ao jejum e ao café puro, que reduz inflamações. Resultados podem variar."
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-gray-800 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-orange-500 mb-3">{item.question}</h3>
-                <p className="text-gray-300 text-lg">{item.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 11 - URGÊNCIA + PROMESSA FINAL */}
+      {/* SEÇÃO 14 - URGÊNCIA FINAL */}
       <section className="py-20 bg-gradient-to-br from-red-500/10 via-black to-orange-500/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -762,6 +1118,94 @@ function App() {
                 Oferta por tempo limitado
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO - NÚMEROS IMPACTANTES */}
+      <section className="py-20 bg-gradient-to-br from-orange-500/10 via-black to-yellow-500/10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 text-white">
+            NÚMEROS QUE <span className="text-orange-500">IMPRESSIONAM</span>
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
+              <Users className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+              <h3 className="text-3xl font-black text-white mb-2">+19.500</h3>
+              <p className="text-gray-300">pessoas testaram o protocolo em 2025</p>
+            </div>
+            
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
+              <TrendingUp className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+              <h3 className="text-3xl font-black text-white mb-2">92%</h3>
+              <p className="text-gray-300">relataram perda de peso nos primeiros 7 dias</p>
+            </div>
+            
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
+              <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
+              <h3 className="text-3xl font-black text-white mb-2">87%</h3>
+              <p className="text-gray-300">afirmaram melhora na disposição, no humor e redução de dores como enxaqueca</p>
+            </div>
+            
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center">
+              <Star className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+              <h3 className="text-3xl font-black text-white mb-2">9.4</h3>
+              <p className="text-gray-300">de satisfação média nas avaliações</p>
+            </div>
+            
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center md:col-span-2 lg:col-span-2">
+              <div className="flex items-center justify-center mb-4">
+                <span className="text-4xl mr-4">☕</span>
+                <span className="text-4xl">→</span>
+                <span className="text-4xl ml-4">💪</span>
+              </div>
+              <h3 className="text-2xl font-black text-white mb-2">1 copo de café</h3>
+              <p className="text-gray-300">1 corpo em transformação</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO - BÔNUS EXCLUSIVOS */}
+      <section className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-8 text-white">
+            PRESENTES PARA <span className="text-orange-500">FORTALECER SUA JORNADA</span>
+          </h2>
+          
+          <p className="text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            Receba ferramentas extras para fortalecer corpo, alma e propósito
+          </p>
+          
+          <div className="max-w-4xl mx-auto space-y-6 mb-12">
+            {[
+              {
+                icon: <Gift className="w-8 h-8 text-yellow-500" />,
+                title: "📓 Receitas com Café para quebrar a gordura e fortalecer a mente"
+              },
+              {
+                icon: <CheckCircle className="w-8 h-8 text-green-500" />,
+                title: "✅ Checklist espiritual e físico diário"
+              },
+              {
+                icon: <Users className="w-8 h-8 text-blue-500" />,
+                title: "👭 Grupo de apoio com outras mulheres de fé"
+              }
+            ].map((bonus, index) => (
+              <div key={index} className="bg-gray-800 rounded-2xl p-6 flex items-center space-x-4">
+                {bonus.icon}
+                <h3 className="text-xl font-bold text-white">{bonus.title}</h3>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-black text-lg md:text-xl px-8 py-4 rounded-full hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wide">
+              <span onClick={scrollToOffer} className="cursor-pointer">
+                💡 SIM, QUERO O PROTOCOLO SAGRADO DE JEJUM AGORA
+              </span>
+            </button>
           </div>
         </div>
       </section>
